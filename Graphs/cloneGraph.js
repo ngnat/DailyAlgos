@@ -24,7 +24,6 @@ function Node(val, neighbors) {
      }
 
 var cloneGraph = function(node) {
-
     let hash = {}
     function helper(node){
         if (!node) return null
@@ -46,7 +45,6 @@ while (queue.length){
             visited.set(v, new Node(v.val, []))
             queue.push(v)
         }
-        console.log(visited)
   visited.get(curr).neighbors.push(visited.get(v))
     })
 }

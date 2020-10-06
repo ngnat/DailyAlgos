@@ -19,7 +19,6 @@ function checkPalindrome(string, left, right){
             right++
          
         }
-    console.log(string.slice(left+1, right))
     return (right - left -1)
 }
 
