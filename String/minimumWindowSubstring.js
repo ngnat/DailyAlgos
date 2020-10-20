@@ -81,14 +81,13 @@ var minWindow = function(s, t) {
         if (!tSplit.every((val) => subString.indexOf(val) >=0)){
             j++
         } else {
-               console.log(subString, 'subString')
+            console.log(subString, 'subString')
             if(subString.length < maxString.length){
                 maxString = subString
             }
             i++
         }
     }
-    console.log(maxString, 'max')
     if (maxString === s) {
         return ''
     } else {

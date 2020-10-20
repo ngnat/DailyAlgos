@@ -15,9 +15,28 @@
 //    15   7
 // return its depth = 3.
 
+// var maxDepth = function(root) {
+//     if (!root) return 0
+//     let left = maxDepth(root.left)
+//     let right = maxDepth(root.right)
+//     return Math.max(left, right) + 1
+// };
+
 var maxDepth = function(root) {
-    if (!root) return 0
-    let left = maxDepth(root.left)
-    let right = maxDepth(root.right)
-    return Math.max(left, right) + 1
+    let maxDepth = 0
+    helper(root, 1)
+    return maxDepth
+    function helper(node, depth){
+        if(!node) return null
+        if(depth > maxDepth){
+            maxDepth = depth
+           }
+        if (node.left){
+            helper(node.left, depth + 1)
+        }
+        
+        if(node.right){
+            helper(node.right, depth + 1)
+        }
+    }
 };

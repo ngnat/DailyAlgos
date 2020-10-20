@@ -17,16 +17,18 @@
 //   []
 // ]
 
-function subSets(nums){
+var subsets = function(nums) {
     let results = [[]]
-    function helper(first, current){
-        for (let i = first; i < nums.length; i++){
-            current.push(nums[first])
-            results.push(...current)
-            helper(i + 1, current)
+    
+    function backtrack(first, current){
+        for(let i = first; i < nums.length; i++){
+            current.push(nums[i])
+            results.push([...current])
+            backtrack(i + 1, current)
             current.pop()
         }
     }
-    helper(0, [])
+    
+    backtrack(0, [])
     return results
 }

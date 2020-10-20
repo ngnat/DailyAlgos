@@ -23,21 +23,21 @@
 
 //bottom-up
 var wordBreak = function(s, wordDict) {
+    const dict = new Set(wordDict);
+    const dp = Array(s.length + 1).fill(false);
+    dp[0] = true;
     
-    let dp = new Array(s.length + 1).fill(false)
-    dp[0] = true
-
-    for (let i = 0; i <= s.length; i++){
-        for (let j = i -1; j>= 0; j--){
-            if (dp[j] && wordDict.includes(s.slice(j, i))){
-                dp[i] = true
+    for(let i = 1; i <= s.length; i++) { // end of word
+        for(let j = 0; j < i; j++) { // start of word
+            const word = s.slice(j, i)
+            if(dict.has(word) && dp[j]) {
+                dp[i] = true; // mark as valid start
+                break;
             }
         }
     }
-
-    return dp[s.length]
-}
-
+    return dp[s.length];    
+};
 
 //memoization
 var wordBreak = function(s, wordDict) {
