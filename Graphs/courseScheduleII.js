@@ -40,7 +40,6 @@ var findOrder = function(numCourses, prerequisites) {
         let curr = stack.pop()
         results.push(curr)
         count++
-        console.log(stack, results)
         if (hash[curr]){
             for (let v of hash[curr]){
                 courseTracker[v]--

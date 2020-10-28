@@ -45,7 +45,7 @@ function wordBreak(s, wordDict){
         for (let end = start + 1; end <=s.length; end++){
             let word = s.slice(start, end)
             if (word in dict){
-                let combos = helper(word)
+                let combos = helper(end)
                 combos.forEach((combo) => list.push([word, ... combo]))
             }
         }
